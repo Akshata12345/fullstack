@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-md-4 register-company">
+      <!-- form card register -->
+      <div class="card card-outline-secondary">
+        <div class="card-header">
+          <h3 class="mb-0">Edit Employee</h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+ 
+            <div class="form-group">
+              <label for="inputName">EmployeeName</label>
+              <input class="form-control" type="text" formControlName="name">
+              </div>
+              
+              <div class="form-group">
+                <label for="inputPassword3">Company</label>
+                <input class="form-control" type="text" formControlName="company">
+                 <!-- error -->
+                 <div class="invalid-feedback" *ngIf="submitted && myForm.code.errors?.required">
+                    company is required.
+                  </div>
+               
+              </div>
+ 
+              <div class="form-group">
+                <label for="inputVerify3">Department</label>
+                <input class="form-control" type="text" formControlName="department">
+                <!-- error -->
+                <div class="invalid-feedback" *ngIf="submitted && myForm.location.errors?.required">
+                    department is required.
+                  </div>
+               
+              </div><br/>
+ 
+            <div class="form-group">
+              <button class="btn btn-success btn-lg btn-block" type="submit">Update</button>
+            </div>
+          </form>
+        </div>
+      </div><!-- form  -->
+    </div>
+  </div>
+ 

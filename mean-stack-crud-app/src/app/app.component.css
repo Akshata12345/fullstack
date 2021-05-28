@@ -1,0 +1,13 @@
+nav{
+    padding:10px;
+    width: 60px;
+}
+h6{
+    font-weight:100px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: larger;
+}
+a{
+    padding:5px;
+    font-size: larger;
+}

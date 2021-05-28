@@ -1,0 +1,33 @@
+<div mat-dialog-content style="text-align: center;background-color:white;">
+    <form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)">
+      <div>
+      <mat-form-field>
+      <input matInput type="text" name="email" #email="ngModel" [(ngModel)]="model.email" placeholder="Email" [pattern]="emailRegex" required
+        [ngClass]="{'invalid-textbox' :signInForm.submitted && !email.valid }">
+      <div *ngIf="signInForm.submitted && email.errors?.pattern">
+        <label class="validation-message">Invalid email address.</label>
+      </div>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <input matInput type="password" name="password" #password="ngModel" [(ngModel)]="model.password" placeholder="Password" required minlength="4"
+        [ngClass]="{'invalid-textbox' :signInForm.submitted && !password.valid }">
+      <div *ngIf="signInForm.submitted && password.errors?.minlength">
+        <label class="validation-message">Minimum 4 characters.</label>
+      </div>
+    </mat-form-field>
+  </div>
+      
+      
+      <div class="form-element">
+        <button mat-raised-button color="primary" type="submit" value="Sign In">SignIn</button>
+      </div>
+  
+    </form>
+    <!-- Error message -->
+  <div class="alert" *ngIf="serverErrorMessages">
+      {{serverErrorMessages}}
+    </div>
+  </div>
+   
